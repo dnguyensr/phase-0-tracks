@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your next camera upgrade</title>
+</head>
+<body>
+  <form name="cameragear" action="success.html">
+    <fieldset>
+      <h4>Your current camera</h4>
+      <div>
+        <label>Brand:</label><br>
+        <input type="radio" name="brand" value="canon">Canon<br>
+        <input type="radio" name="brand" value="fuji">Fuji<br>
+        <input type="radio" name="brand" value="nikon">Nikon<br>
+        <input type="radio" name="brand" value="panasonic">Panasonic<br>
+        <input type="radio" name="brand" value="sony">Sony<br>
+        <input type="radio" name="brand" value="other">Other<br>
+      </div>
+      <div>
+        <label>Model:</label>
+        <input type="text" name="model">
+      </div>
+      <div>
+        <label>When do you plan on upgrading your camera body?</label><br>
+        <input type="checkbox" name="time1" value="6mo">Within 6 months<br>
+        <input type="checkbox" name="time2" value="1yr">6 months to 1 year<br>
+        <input type="checkbox" name="time3" value="2yr">1 to 2 years<br>
+        <input type="checkbox" name="time4" value="2yr+">More than 2 years<br>
+      </div>
+    </fieldset>
+    <fieldset>
+      <div>
+        <label>What camera will you be purchasing next?</label>
+        <br>
+        <select name="Camera">
+          <option value="a6300">Sony A6300</option>
+          <option value="5dm4">Canon 5D Mark IV</option>
+          <option value="gh5">Panasonic GH5</option>
+        </select>
+      </div>
+      <div>
+        <label>Please tell us what factors led to your choice.</label>
+        <br>
+        <textarea name="rationale" rows="10" cols="45">Please tell us what factors led to your choice.</textarea>
+      </div>
+    </fieldset>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
