@@ -1,0 +1,27 @@
+Elevator Robot
+-Locate grid of buttons by scanning walls
+  - Move forward until a wall is reached (Wall A)
+  - Scan walls for a grid of buttons while moving left along Wall A until another wall is reached (Wall B)
+    -if grid of buttons is located, stop
+  - Continue scanning wall for grid of buttons while moving left until corner is reached (Wall C)
+    -if grid of buttons is located, stop
+  - Continue scanning wall while moving left until corner is reached (Wall D)
+    -if grid of buttons is located, stop
+  - Continue scanning wall while moving left until corner is reached (Wall A)
+-If grid of buttons can not be located, say "I can not find the elevator buttons" and route home
+-Otherwise: Determine what floor to go to
+    -If desired floor is known, continue to next step
+    -Otherwise:
+      - Say "What floor would you like to go to?" to valid response (refer to elevator floors for valid responses)
+      -Wait 8 seconds for reply
+      -If no valid response, repeat previous steps twice
+        -If no response, route home
+      -If numeric response was recorded, continue to next step
+-Press button
+  -Locate the desired floor on the grid based on number or text
+    -If floor is not valid, return to previous determining floor
+    -Otherwise press the button in which number or text is located
+
+Get Orange Juice Algorithm
+
+
