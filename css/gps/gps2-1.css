@@ -1,0 +1,36 @@
+body {
+    color: white;
+    background-color: #CDB8A4;
+}
+header {
+    display: block;
+    background: #50abbd;
+    width: 95%;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.column-1 {
+    vertical-align: top;
+    float: left;
+    background: #2EAAE4;
+    display: inline-block;
+    width: 45%;
+    padding-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.column-2 {
+    vertical-align: top;
+    background: #77B8B4;
+    width: 45%;
+    display: inline-block;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+footer {
+    clear: both;
+    background-color: #50abbd;
+    vertical-align: bottom;
+    width: 95%;
+    font-family: Verdana, Geneva, sans-serif;
+}
