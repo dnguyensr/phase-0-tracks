@@ -1,6 +1,7 @@
 puts "How many employees will be processed?"
 numemployees = gets.chomp.to_i
 i = 0
+
 while i < numemployees do
   puts "What is your name?"
   name = gets.chomp.downcase
@@ -28,6 +29,9 @@ while i < numemployees do
     puts "Probably not a vampire"
   else puts "Results inconclusive"
   end
+
   i += 1
+
 end
+
 puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
