@@ -17,11 +17,46 @@ Elevator Robot
       -If no valid response, repeat previous steps twice
         -If no response, route home
       -If numeric response was recorded, continue to next step
--Press button
+#Press button
   -Locate the desired floor on the grid based on number or text
     -If floor is not valid, return to previous determining floor
     -Otherwise press the button in which number or text is located
 
-Get Orange Juice Algorithm
-
-
+Get Water Algorithm
+-Return to charging station
+-Navigate to cupboard
+  - Follow along North Laundry Room Wall
+  -Turn corner and continue .75 meters along Hallway B East Wall
+  -Record position and orientation
+  -Rotate 90 degrees counterclockwise and continue for 2.5 meters
+  -Rotate 90 degrees counterclockwise and move forward until obstructed
+-Retrieve Cup
+  -Switch right arm to pivoting suction tool
+  -Raise right arm 1m above baseline height and extend until obstructed
+  -Apply suction and move 0.2 meters to the right while retracting arm by 0.2m
+  -Switch left arm to fragile object claw grabber tool
+  -Raise left arm 1m above baseline height and extend until obstructed
+  -Open claw and extend until obstructed
+  -Close claw
+  -Retract left arm to baseline position
+  -Disable suction on right arm
+  -Rotate 90 degrees counterclockwise
+  -Retract right arm
+-Navigate to water dispenser
+  -Move forward 1.5m
+  -Rotate 90 degrees clockwise
+  -Extend left arm until obstructed
+  -Extend left arm an additional 0.02m
+  -Withdraw arm to baseline position after 15 seconds
+-Navigate to living room
+  -Navigate back to Hallway B East Wall position
+  -Extend right arm forward by 0.2m
+  -Move forward until obstructed
+  -Turn 90 degrees counterclockwise
+  -Move forward 3 meters
+  -Move forward had half speed until obstructed
+  -Extend left arm 0.2m
+  -Lower left arm until obstructed
+  -Open claw
+  -Return both arms to baseline
+  -Return to charging station
