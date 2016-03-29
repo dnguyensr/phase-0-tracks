@@ -12,28 +12,28 @@ p "zom".insert(2, 'o')
 # => “zoom”
 
 p "enhance".center(15)
-#=> “    enhance    ”
+# => "    enhance    "
 
 p "Stop! You’re under arrest!".upcase
-# => “STOP! YOU’RE UNDER ARREST!”
+# => "STOP! YOU’RE UNDER ARREST!"
 
 p "the usual" + " suspects"
 p "the usual" << " suspects"
-#=> “the usual suspects”
+#=> "the usual suspects"
 
 p " suspects".insert(0, 'the usual')
 p " suspects".prepend("the usual")
-#=> “the usual suspects”
+# => "the usual suspects"
 
 p "The case of the disappearing last letter".chop
 p "The case of the disappearing last letter".slice!(0..38)
-# => “The case of the disappearing last lette”
+# => "The case of the disappearing last lette"
 
 p "The mystery of the missing first letter".slice!(1..38)
-# => “he mystery of the missing first letter”
+# => "he mystery of the missing first letter"
 
-p "Elementary  ,    my   dear      Watson!".squeeze!
-# => “Elementary, my dear Watson!”
+p "Elementary,    my   dear        Watson!".squeeze!
+# => "Elementary, my dear Watson!"
 
 p "z".bytes.join.to_i
 "z".each_byte {|i| puts i}
@@ -41,5 +41,5 @@ p "z".bytes.join.to_i
 # => 122
 # (What is the significance of the number 122 in relation to the character z?)
 
-p "How many times does the letter ‘a’ appear in this string?".count "a"
-#=> 4
+p "How many times does the letter 'a' appear in this string?".count "a"
+# => 4
