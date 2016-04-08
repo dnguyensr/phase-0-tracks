@@ -2,16 +2,17 @@ class Santa
   attr_reader :ethnicity
   attr_accessor :gender, :age
 
-  def initialize(gender, ethnicity, age)
+  def initialize(gender, ethnicity, age = 0)
     @gender = gender
     @ethnicity = ethnicity
     @reindeer = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
     @age = age
     puts "Initializing Santa instance..."
   end
-def new_age(new_age)
-  @age = new_age
-end
+
+  def new_age(new_age)
+    @age = new_age
+  end
 #  def gender
 #    @gender
 #  end
@@ -40,28 +41,21 @@ end
   end
 end
 
-clause = Santa.new("male", "Northpolean", 500)
-#clause.speak
-#clause.eat_milk_and_cookies("oatmeal cookie")
+clause = Santa.new("male", "Northpolean")
+clause.speak
+clause.eat_milk_and_cookies("oatmeal cookie")
 
-#santas = []
-#santas << Santa.new("agender", "black")
-#santas << Santa.new("female", "Latino")
-#santas << Santa.new("bigender", "white")
-#santas << Santa.new("male", "Japanese")
-#santas << Santa.new("female", "prefer not to say")
-#santas << Santa.new("gender fluid", "Mystical Creature (#unicorn)")
-#santas << Santa.new("N/A", "N/A")
 santas = []
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+
 #example_genders.length.times do |i|
 #  santas << Santa.new(example_genders[i], example_ethnicities#[i])
 #end
 
-#p clause.celebrate_birthday
-#clause.get_mad_at("Vixen")
-#puts "Clause is a #{clause.gender} #{clause.ethnicity} santa."
+p clause.celebrate_birthday
+clause.get_mad_at("Vixen")
+puts "Clause is a #{clause.gender} #{clause.ethnicity} santa."
 
 50.times do
   santas << Santa.new(example_genders.sample, example_ethnicities.sample, rand(140))
