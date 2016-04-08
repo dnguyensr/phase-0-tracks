@@ -45,6 +45,14 @@ spot.dog_years(2.5)
 spot.dress("a hat")
 
 
+#class for students
+#method taking student condition
+#IF condition is equal to something, outputs what student should do
+#ELSE keep working
+#method taking numbers of times to write on chalkboard and message
+#prints message the inputs number of times
+
+
 class Students
 
   def initialize
@@ -70,8 +78,9 @@ class Students
   end
 
   def chalkboard_write(number, message)
-    number.times do puts "Written on the chalkboard: #{message}."
-      end
+    number.times do
+      puts "Written on the chalkboard: #{message}."
+    end
   end
 
 end
@@ -86,8 +95,9 @@ while class_number < 51
   class_roster["#{student_id}" ]= Students.new
   class_number += 1
 end
-p class_roster
-p class_roster["student1"].class
+
+#p class_roster
+#p class_roster["student1"].class
 #p student1.class
 
 
