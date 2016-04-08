@@ -83,3 +83,31 @@ p test_list
 # updateqty("ice_cream", grocery, 4)
 # removeitem("lemonade", grocery)
 # printlist(grocery)
+
+=begin
+What did you learn about pseudocode from working on this challenge?
+
+I learned to effectively use pseudocode to outline what needed to coded. This included the inputs to collect, the steps to do what needs to be one, and the output to be expected.
+
+What are the tradeoffs of using arrays and hashes for this challenge?
+This challenge only needed to change the quantity value so hashes were a good fit for it. Hashes benefit from being able to use a single built-in hash method to delete a key while hashes would require an additional of finding the index number. Assuming arrays within arrays were used, multiple entries of the same item would be able to be placed into the list while hashes would allow only one of the item due to items being used as the key.
+
+What does a method return?
+
+A method returns the last statement in the method.
+
+What kind of things can you pass into methods as arguments?
+
+Some things that can be passed into a method as arguments include strings, integers, floats, booleans, and variables with or without default values.
+
+How can you pass information between methods?
+
+Information can be passed through methods by using a variable or storing it in a container.
+
+What concepts were solidified in this challenge, and what concepts are still confusing?
+
+My understanding of hashes was fairly poor prior to this GPS but I felt like I learned a few things by going through this GPS. One of the notable things was learning to return hashes after the change is done. I will have to look over additional resources to get a stronger grasp of hashes.
+Setting test drivers prior to coding for a method was also new to me as it had normally stopped at the pseudocoding phase and placed in after the method is complete to test it prior to this GPS.
+
+
+=end
