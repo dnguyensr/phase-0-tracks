@@ -1,13 +1,21 @@
 module Shout
+#  def self.yell_angrily(words)
+#    words + "!!!" + " :("
+#  end
+#
+#  def self.yell_happily(words)
+#    words + "!!!! :)"
+#  end
+#  p self.yell_angrily("So angry")
+#  p self.yell_happily("So happy")
   def yell_angrily(words)
-    words + "!!!" + " :("
+    words + "!!!!!!!!!!"
   end
 
   def yell_happily(words)
-    words + "!!!! :)"
+    words + "!!!! :D"
   end
-#  p self.yell_angrily("So angry")
-#  p self.yell_happily("So happy")
+
 end
 
 class Heckler
