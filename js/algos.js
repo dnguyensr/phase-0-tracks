@@ -22,3 +22,7 @@ longest(arr);
 longest(arr3);
 
 //Release 1: Find a Key-Value Match
+//Declare new function that takes two objects
+  //Declare new variable as a hash
+  //Store obects into hash
+  //For each object, check if either
