@@ -106,7 +106,7 @@ alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density],
 alaska.virus_effects
 
 def reportmethod
-  STATE_DATA.each {|state, popdata|
+  STATE_DATA.each { |state, popdata|
     report = VirusPredictor.new(state, popdata[:population_density], popdata[:population])
     report.virus_effects
   }
@@ -116,3 +116,15 @@ reportmethod
 
 #=======================================================================
 # Reflection Section
+=begin
+The two hash syntaxes are the implicit form and the alternative form that uses symbols. An example of the implicit form is the use of the rocket to declare a key-value pair such as the state strings being declared the key to the inner hash. An example of the alternative form is the use of colons in declaring key-value pairs of population_density and population with its respective values.
+
+Require_relative links files with relative paths which enables the content of the linked file to be used globally in the main file. The relative path is what differentiates require_relative from relative.
+
+Iterating through a hash can be done with several iterations of .each including .each, .each_key and .each_value. The methods .each_key and .each_value will have one variable, either the key or the value, while .each will have both variables, the key and the value.
+
+The use of instance variables in virus_effects and not needing to call for them as variables in the methods are what stood out when refactoring virus_effects.
+
+The concept of iterating through hashes was the most solidifying in this challenge. The process of refactoring was also one that saw an improvement in understanding ways to go about refactoring.
+
+=end
