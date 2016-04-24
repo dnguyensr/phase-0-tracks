@@ -1,0 +1,279 @@
+1. Display the information in one table
+
+SELECT * FROM movies;
+
+Zootopia|2016|true|false|1
+Inside Out|2015|true|false|1
+Toy Story|1995|true|true|2
+Toy Story 2|1999|true|true|2
+Toy Story 3|2010|true|true|2
+Up|2009|true|false|2
+WALL-E|2008|true|false|2
+Dr. Strangelove|1965|false|false|3
+Office Space|1999|false|false|4
+Robin Hood: Men in Tights|1993|false|false|5
+Boyz in the Hood|1991|false|false|3
+Saving Private Ryan|1998|false|false|6
+Serenity|2005|false|false|7
+Harry Potter and the Sorcerer's Stone|2001|false|true|8
+
+2. Update an item that meets some condition
+
+UPDATE movies SET series="true" WHERE title="Up";
+
+3. Display the information in both tables using one query.
+
+SELECT * FROM movies, studio WHERE movies.studio_id = studio.studio_id;
+
+Zootopia|2016|true|false|1|1|Disney
+Inside Out|2015|true|false|1|1|Disney
+Toy Story|1995|true|true|2|2|Pixar
+Toy Story 2|1999|true|true|2|2|Pixar
+Toy Story 3|2010|true|true|2|2|Pixar
+Up|2009|true|true|2|2|Pixar
+WALL-E|2008|true|false|2|2|Pixar
+Dr. Strangelove|1965|false|false|3|3|Columbia Pictures
+Office Space|1999|false|false|4|4|Twentieth Century Fox Film Corporation
+Robin Hood: Men in Tights|1993|false|false|5|5|Brooksfilms
+Boyz in the Hood|1991|false|false|3|3|Columbia Pictures
+Saving Private Ryan|1998|false|false|6|6|Dreamworks
+Serenity|2005|false|false|7|7|Universal Pictures
+Harry Potter and the Sorcerer's Stone|2001|false|true|8|8|Warner Bros
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+SELECT movies.title, movies.year, studio.studio FROM movies JOIN studio ON  movies.studio_id = studio.studio_id;
+
+Zootopia|2016|Disney
+Inside Out|2015|Disney
+Toy Story|1995|Pixar
+Toy Story 2|1999|Pixar
+Toy Story 3|2010|Pixar
+Up|2009|Pixar
+WALL-E|2008|Pixar
+Dr. Strangelove|1965|Columbia Pictures
+Office Space|1999|Twentieth Century Fox Film Corporation
+Robin Hood: Men in Tights|1993|Brooksfilms
+Boyz in the Hood|1991|Columbia Pictures
+Saving Private Ryan|1998|Dreamworks
+Serenity|2005|Universal Pictures
+Harry Potter and the Sorcerer's Stone|2001|Warner Bros
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+DELETE FROM movies WHERE year=1991;
+
+SELECT movies.title, movies.year, studio.studio FROM movies JOIN studio ON  movies.studio_id = studio.studio_id;
+Zootopia|2016|Disney
+Inside Out|2015|Disney
+Toy Story|1995|Pixar
+Toy Story 2|1999|Pixar
+Toy Story 3|2010|Pixar
+Up|2009|Pixar
+WALL-E|2008|Pixar
+Dr. Strangelove|1965|Columbia Pictures
+Office Space|1999|Twentieth Century Fox Film Corporation
+Robin Hood: Men in Tights|1993|Brooksfilms
+Saving Private Ryan|1998|Dreamworks
+Serenity|2005|Universal Pictures
+Harry Potter and the Sorcerer's Stone|2001|Warner Bros
+
+Release 3
+2. Try a few different joins in your database, and record the commands and the output in queries.txt.
+
+
+SELECT title, year, animated, studio FROM studio LEFT OUTER JOIN movies ON studio.studio_id = movies.studio_id;
+
+Inside Out|2015|true|Disney
+Zootopia|2016|true|Disney
+Toy Story|1995|true|Pixar
+Toy Story 2|1999|true|Pixar
+Toy Story 3|2010|true|Pixar
+Up|2009|true|Pixar
+WALL-E|2008|true|Pixar
+Dr. Strangelove|1965|false|Columbia Pictures
+Office Space|1999|false|Twentieth Century Fox Film Corporation
+Robin Hood: Men in Tights|1993|false|Brooksfilms
+Saving Private Ryan|1998|false|Dreamworks
+Serenity|2005|false|Universal Pictures
+Harry Potter and the Sorcerer's Stone|2001|false|Warner Bros
+
+SELECT * FROM studio LEFT OUTER JOIN movies ON studio.studio_id = movies.studio_id;
+1|Disney|Inside Out|2015|true|false|1
+1|Disney|Zootopia|2016|true|false|1
+2|Pixar|Toy Story|1995|true|true|2
+2|Pixar|Toy Story 2|1999|true|true|2
+2|Pixar|Toy Story 3|2010|true|true|2
+2|Pixar|Up|2009|true|true|2
+2|Pixar|WALL-E|2008|true|false|2
+3|Columbia Pictures|Dr. Strangelove|1965|false|false|3
+4|Twentieth Century Fox Film Corporation|Office Space|1999|false|false|4
+5|Brooksfilms|Robin Hood: Men in Tights|1993|false|false|5
+6|Dreamworks|Saving Private Ryan|1998|false|false|6
+7|Universal Pictures|Serenity|2005|false|false|7
+8|Warner Bros|Harry Potter and the Sorcerer's Stone|2001|false|true|8
+
+SELECT * FROM movies LEFT OUTER JOIN studio ON studio.studio_id = movies.studio_id;
+Zootopia|2016|true|false|1|1|Disney
+Inside Out|2015|true|false|1|1|Disney
+Toy Story|1995|true|true|2|2|Pixar
+Toy Story 2|1999|true|true|2|2|Pixar
+Toy Story 3|2010|true|true|2|2|Pixar
+Up|2009|true|true|2|2|Pixar
+WALL-E|2008|true|false|2|2|Pixar
+Dr. Strangelove|1965|false|false|3|3|Columbia Pictures
+Office Space|1999|false|false|4|4|Twentieth Century Fox Film Corporation
+Robin Hood: Men in Tights|1993|false|false|5|5|Brooksfilms
+Saving Private Ryan|1998|false|false|6|6|Dreamworks
+Serenity|2005|false|false|7|7|Universal Pictures
+Harry Potter and the Sorcerer's Stone|2001|false|true|8|8|Warner Bros
+
+SELECT * FROM movies JOIN  studio ON studio.studio_id = movies.studio_id;Zootopia|2016|true|false|1|1|Disney
+Inside Out|2015|true|false|1|1|Disney
+Toy Story|1995|true|true|2|2|Pixar
+Toy Story 2|1999|true|true|2|2|Pixar
+Toy Story 3|2010|true|true|2|2|Pixar
+Up|2009|true|true|2|2|Pixar
+WALL-E|2008|true|false|2|2|Pixar
+Dr. Strangelove|1965|false|false|3|3|Columbia Pictures
+Office Space|1999|false|false|4|4|Twentieth Century Fox Film Corporation
+Robin Hood: Men in Tights|1993|false|false|5|5|Brooksfilms
+Saving Private Ryan|1998|false|false|6|6|Dreamworks
+Serenity|2005|false|false|7|7|Universal Pictures
+Harry Potter and the Sorcerer's Stone|2001|false|true|8|8|Warner Bros
+
+ELECT * FROM studio JOIN movies ON studio.studio_id = movies.studio_id;
+1|Disney|Zootopia|2016|true|false|1
+1|Disney|Inside Out|2015|true|false|1
+2|Pixar|Toy Story|1995|true|true|2
+2|Pixar|Toy Story 2|1999|true|true|2
+2|Pixar|Toy Story 3|2010|true|true|2
+2|Pixar|Up|2009|true|true|2
+2|Pixar|WALL-E|2008|true|false|2
+3|Columbia Pictures|Dr. Strangelove|1965|false|false|3
+4|Twentieth Century Fox Film Corporation|Office Space|1999|false|false|4
+5|Brooksfilms|Robin Hood: Men in Tights|1993|false|false|5
+6|Dreamworks|Saving Private Ryan|1998|false|false|6
+7|Universal Pictures|Serenity|2005|false|false|7
+8|Warner Bros|Harry Potter and the Sorcerer's Stone|2001|false|true|8
+
+SELECT * FROM studio CROSS JOIN movies ON studio.studio_id = movies.studio_id;
+1|Disney|Inside Out|2015|true|false|1
+1|Disney|Zootopia|2016|true|false|1
+2|Pixar|Toy Story|1995|true|true|2
+2|Pixar|Toy Story 2|1999|true|true|2
+2|Pixar|Toy Story 3|2010|true|true|2
+2|Pixar|Up|2009|true|true|2
+2|Pixar|WALL-E|2008|true|false|2
+3|Columbia Pictures|Dr. Strangelove|1965|false|false|3
+4|Twentieth Century Fox Film Corporation|Office Space|1999|false|false|4
+5|Brooksfilms|Robin Hood: Men in Tights|1993|false|false|5
+6|Dreamworks|Saving Private Ryan|1998|false|false|6
+7|Universal Pictures|Serenity|2005|false|false|7
+8|Warner Bros|Harry Potter and the Sorcerer's Stone|2001|false|true|8
+
+SELECT * FROM studio CROSS JOIN movies;
+1|Disney|Zootopia|2016|true|false|1
+1|Disney|Inside Out|2015|true|false|1
+1|Disney|Toy Story|1995|true|true|2
+1|Disney|Toy Story 2|1999|true|true|2
+1|Disney|Toy Story 3|2010|true|true|2
+1|Disney|Up|2009|true|true|2
+1|Disney|WALL-E|2008|true|false|2
+1|Disney|Dr. Strangelove|1965|false|false|3
+1|Disney|Office Space|1999|false|false|4
+1|Disney|Robin Hood: Men in Tights|1993|false|false|5
+1|Disney|Saving Private Ryan|1998|false|false|6
+1|Disney|Serenity|2005|false|false|7
+1|Disney|Harry Potter and the Sorcerer's Stone|2001|false|true|8
+2|Pixar|Zootopia|2016|true|false|1
+2|Pixar|Inside Out|2015|true|false|1
+2|Pixar|Toy Story|1995|true|true|2
+2|Pixar|Toy Story 2|1999|true|true|2
+2|Pixar|Toy Story 3|2010|true|true|2
+2|Pixar|Up|2009|true|true|2
+2|Pixar|WALL-E|2008|true|false|2
+2|Pixar|Dr. Strangelove|1965|false|false|3
+2|Pixar|Office Space|1999|false|false|4
+2|Pixar|Robin Hood: Men in Tights|1993|false|false|5
+2|Pixar|Saving Private Ryan|1998|false|false|6
+2|Pixar|Serenity|2005|false|false|7
+2|Pixar|Harry Potter and the Sorcerer's Stone|2001|false|true|8
+3|Columbia Pictures|Zootopia|2016|true|false|1
+3|Columbia Pictures|Inside Out|2015|true|false|1
+3|Columbia Pictures|Toy Story|1995|true|true|2
+3|Columbia Pictures|Toy Story 2|1999|true|true|2
+3|Columbia Pictures|Toy Story 3|2010|true|true|2
+3|Columbia Pictures|Up|2009|true|true|2
+3|Columbia Pictures|WALL-E|2008|true|false|2
+3|Columbia Pictures|Dr. Strangelove|1965|false|false|3
+3|Columbia Pictures|Office Space|1999|false|false|4
+3|Columbia Pictures|Robin Hood: Men in Tights|1993|false|false|5
+3|Columbia Pictures|Saving Private Ryan|1998|false|false|6
+3|Columbia Pictures|Serenity|2005|false|false|7
+3|Columbia Pictures|Harry Potter and the Sorcerer's Stone|2001|false|true|8
+4|Twentieth Century Fox Film Corporation|Zootopia|2016|true|false|1
+4|Twentieth Century Fox Film Corporation|Inside Out|2015|true|false|1
+4|Twentieth Century Fox Film Corporation|Toy Story|1995|true|true|2
+4|Twentieth Century Fox Film Corporation|Toy Story 2|1999|true|true|2
+4|Twentieth Century Fox Film Corporation|Toy Story 3|2010|true|true|2
+4|Twentieth Century Fox Film Corporation|Up|2009|true|true|2
+4|Twentieth Century Fox Film Corporation|WALL-E|2008|true|false|2
+4|Twentieth Century Fox Film Corporation|Dr. Strangelove|1965|false|false|3
+4|Twentieth Century Fox Film Corporation|Office Space|1999|false|false|4
+4|Twentieth Century Fox Film Corporation|Robin Hood: Men in Tights|1993|false|false|5
+4|Twentieth Century Fox Film Corporation|Saving Private Ryan|1998|false|false|6
+4|Twentieth Century Fox Film Corporation|Serenity|2005|false|false|7
+4|Twentieth Century Fox Film Corporation|Harry Potter and the Sorcerer's Stone|2001|false|true|8
+5|Brooksfilms|Zootopia|2016|true|false|1
+5|Brooksfilms|Inside Out|2015|true|false|1
+5|Brooksfilms|Toy Story|1995|true|true|2
+5|Brooksfilms|Toy Story 2|1999|true|true|2
+5|Brooksfilms|Toy Story 3|2010|true|true|2
+5|Brooksfilms|Up|2009|true|true|2
+5|Brooksfilms|WALL-E|2008|true|false|2
+5|Brooksfilms|Dr. Strangelove|1965|false|false|3
+5|Brooksfilms|Office Space|1999|false|false|4
+5|Brooksfilms|Robin Hood: Men in Tights|1993|false|false|5
+5|Brooksfilms|Saving Private Ryan|1998|false|false|6
+5|Brooksfilms|Serenity|2005|false|false|7
+5|Brooksfilms|Harry Potter and the Sorcerer's Stone|2001|false|true|8
+6|Dreamworks|Zootopia|2016|true|false|1
+6|Dreamworks|Inside Out|2015|true|false|1
+6|Dreamworks|Toy Story|1995|true|true|2
+6|Dreamworks|Toy Story 2|1999|true|true|2
+6|Dreamworks|Toy Story 3|2010|true|true|2
+6|Dreamworks|Up|2009|true|true|2
+6|Dreamworks|WALL-E|2008|true|false|2
+6|Dreamworks|Dr. Strangelove|1965|false|false|3
+6|Dreamworks|Office Space|1999|false|false|4
+6|Dreamworks|Robin Hood: Men in Tights|1993|false|false|5
+6|Dreamworks|Saving Private Ryan|1998|false|false|6
+6|Dreamworks|Serenity|2005|false|false|7
+6|Dreamworks|Harry Potter and the Sorcerer's Stone|2001|false|true|8
+7|Universal Pictures|Zootopia|2016|true|false|1
+7|Universal Pictures|Inside Out|2015|true|false|1
+7|Universal Pictures|Toy Story|1995|true|true|2
+7|Universal Pictures|Toy Story 2|1999|true|true|2
+7|Universal Pictures|Toy Story 3|2010|true|true|2
+7|Universal Pictures|Up|2009|true|true|2
+7|Universal Pictures|WALL-E|2008|true|false|2
+7|Universal Pictures|Dr. Strangelove|1965|false|false|3
+7|Universal Pictures|Office Space|1999|false|false|4
+7|Universal Pictures|Robin Hood: Men in Tights|1993|false|false|5
+7|Universal Pictures|Saving Private Ryan|1998|false|false|6
+7|Universal Pictures|Serenity|2005|false|false|7
+7|Universal Pictures|Harry Potter and the Sorcerer's Stone|2001|false|true|8
+8|Warner Bros|Zootopia|2016|true|false|1
+8|Warner Bros|Inside Out|2015|true|false|1
+8|Warner Bros|Toy Story|1995|true|true|2
+8|Warner Bros|Toy Story 2|1999|true|true|2
+8|Warner Bros|Toy Story 3|2010|true|true|2
+8|Warner Bros|Up|2009|true|true|2
+8|Warner Bros|WALL-E|2008|true|false|2
+8|Warner Bros|Dr. Strangelove|1965|false|false|3
+8|Warner Bros|Office Space|1999|false|false|4
+8|Warner Bros|Robin Hood: Men in Tights|1993|false|false|5
+8|Warner Bros|Saving Private Ryan|1998|false|false|6
+8|Warner Bros|Serenity|2005|false|false|7
+8|Warner Bros|Harry Potter and the Sorcerer's Stone|2001|false|true|8
