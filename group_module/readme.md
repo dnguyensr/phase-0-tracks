@@ -12,6 +12,7 @@ The purpose of this the group_module is to handle the creation, storage, and edi
 * artist_info(db, artist) - prints info about artist
 * display_members(db, artist) - prints all members in group
 * display_memberinfo(db, member) - prints information about member
+* generate_wiki(db, artist) - prints markdown formatted text for use in wiki pages
 
 ##Datafields
 * artist
@@ -22,6 +23,12 @@ The purpose of this the group_module is to handle the creation, storage, and edi
 * dob
 * cafe - Moderated communites on Daum.net
 * twitter
-* fb - Facebook
-* insta - Instagram
+* facebook
+* instagram
 * v - V Live (Korean broadcasting app)
+
+##Pending changes (will be updated outside of dbc repo)
+* scope: implementation of class/modules
+* display methods: implement into irc/discord ruby bot framework
+* generate_wiki: generate text directly to online text editor
+* tables: crowd source populating of tables

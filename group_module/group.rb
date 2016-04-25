@@ -21,7 +21,7 @@ create_members_table = <<-asdf
     artist VARCHAR(255),
     stage_name VARCHAR(255),
     real_name VARCHAR(255),
-    dob INT,
+    dob blob,
     FOREIGN KEY (artist) REFERENCES artists(artist)
 )
 asdf
@@ -122,14 +122,40 @@ def display_memberinfo(db, member)
 end
 
 def generate_artist_wiki(db, artist)
-    db.execute("SELECT * FROM artists WHERE artist='#{artist}';") do |artist|
-    puts "#{artist['artist']} is under #{artist['label']} and debuted in #{artist['debut_year']}."
+  puts ""
+  db.execute("SELECT * FROM artists WHERE artist='#{artist}';") do |artist|
+    puts "##{artist['artist']}  "
+    puts ""
+    puts "#{artist['artist']} is a group under #{artist['label']} and debuted in #{artist['debut_year']}."
+  end
+  puts ""
 end
 
 def generate_member_wiki(db, artist)
+  puts "#Members"
+  puts ""
+  db.execute("SELECT * FROM members WHERE artist='#{artist}';") do |member|
+    puts "* #{member['stage_name']} - born #{member['real_name']} on 20#{member['dob']} (YYYYMMDD)"
+  end
+  puts ""
 end
 
 def generate_sns_wiki(db, artist)
+  puts "#Social Media"
+  puts ""
+  db.execute("SELECT * FROM sns WHERE artist='#{artist}';") do |sns|
+    puts "* [Cafe](#{sns['cafe']})"
+    puts "* [Twitter](#{sns['twitter']})"
+    puts "* [Facebook](#{sns['facebook']})"
+    puts "* [Instagram](#{sns['instagram']})"
+    puts "* [V-Live](#{sns['v']})"
+  end
+end
+
+def generate_wiki(db, artist)
+  generate_artist_wiki(db, artist)
+  generate_member_wiki(db, artist)
+  generate_sns_wiki(db, artist)
 end
 
 #edit_artist driver code
@@ -146,3 +172,7 @@ display_artists(db)
 artist_info(db, 'Oh My Girl')
 display_members(db, 'Oh My Girl')
 display_memberinfo(db, 'Hyunjoo')
+#generate_artist_wiki(db, 'April')
+#generate_member_wiki(db, 'TWICE')
+#generate_sns_wiki(db, 'Oh My Girl')
+generate_wiki(db, 'April')
