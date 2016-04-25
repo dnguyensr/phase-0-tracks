@@ -1,0 +1,45 @@
+2.
+sqlite> select
+  ...> *
+  ...> from
+  ...> users
+  ...> join reviews on users.id = reviews.user_id
+  ...> join business on business.id = reviews.business_id;
+
+1|Bradford|Pitt|1|4|Great!|1|1|1|Grundy Hollow Wedding Chapel
+2|Mandy|Kaling|2|5|Life changing|1|2|1|Grundy Hollow Wedding Chapel
+2|Mandy|Kaling|3|1|Life changing|3|2|3|The Beagle Nightclub
+3|Angela|Jolie|4|3|Meh|2|3|2|Amir's Towing
+
+3.
+sqlite> select
+  ...> users.first_name,
+  ...> users.last_name,
+  ...> business.name,
+  ...> reviews.stars,
+  ...> reviews.comment
+  ...> from
+  ...> users
+  ...> join reviews on users.id = reviews.user_id
+  ...> join business on business.id = reviews.business_id;
+
+Bradford|Pitt|Grundy Hollow Wedding Chapel|4|Great!
+Mandy|Kaling|Grundy Hollow Wedding Chapel|5|Life changing
+Mandy|Kaling|The Beagle Nightclub|1|Life changing
+Angela|Jolie|Amir's Towing|3|Meh
+
+4.
+sqlite> select
+  ...> users.first_name,
+  ...> users.last_name,
+  ...> business.name,
+  ...> reviews.stars,
+  ...> reviews.comment
+  ...> from
+  ...> users
+  ...> join reviews on users.id = reviews.user_id
+  ...> join business on business.id = reviews.busin
+  ...> where
+  ...> business.name="The Beagle Nightclub";
+
+Mandy|Kaling|The Beagle Nightclub|1|Life changing
