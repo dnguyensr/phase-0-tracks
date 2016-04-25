@@ -70,6 +70,7 @@ def edit_member(db, artist, datafield, newdata, olddata)
     db.execute("UPDATE members SET #{datafield}='#{newdata}' WHERE #{datafield}='#{olddata}';")
 end
 
+#edit methods consolidated to one edit method for users
 def edit(db, artist, datafield, newdata, olddata='filler')
   datafield = datafield.downcase
 
@@ -87,47 +88,61 @@ def edit(db, artist, datafield, newdata, olddata='filler')
   end
 end
 
-#def display_artists(db)
-#  puts db.execute("SELECT artist FROM artists;")
-#end
-#
-#def display_groupmembers(db, group)
-#  db.execute("SELECT * FROM members;")
-#end
-#
-#def display_groupmembers(db, sns)
-#  db.execute("SELECT * FROM sns;")
-#end
+def display_artists(db)
+  artists = db.execute("SELECT artist FROM artists;")
+    print "The following artists are in table artist: "
 
-#user_prompts method assumes database db is being used
+  artists.each do |artist|
+    print "#{artist['artist']}, "
+  end
 
-#def user_prompts
-#  puts "Available commands: display all, display artist, add, edit"
-#  @command = gets.chomp
-#
-#  IF @command = 'display all'
-#    puts "Information avilable for display: artists, members, social ##media sites"
-#  else puts "garbaji"
-#  end
-#      display = gets.chomp
-#        IF display == 'artists' || display == 'members' || display == '#social media sites'
-#          db.execute("SELECT * from #{display}")
-#        else puts "That information is not valid"
-#        end
-#
-#  else
-#  end
-#end
+  puts ""
+end
 
+def artist_info(db, artist)
 
+  db.execute("SELECT * FROM artists WHERE artist='#{artist}';") do |artist|
+    puts "#{artist['artist']} is under #{artist['label']} and debuted in #{artist['debut_year']}."
+  end
+
+end
+
+def display_members(db, artist)
+  print "#{artist} members: "
+  db.execute("SELECT * FROM members WHERE artist='#{artist}';") do |member|
+    print "#{member['stage_name']}, "
+  end
+    puts ""
+end
+
+def display_memberinfo(db, member)
+  db.execute("SELECT * FROM members WHERE stage_name='#{member}';") do |member|
+    puts "#{member['stage_name']} from #{member['artist']} was born on #{member['dob']}"
+  end
+end
+
+def generate_artist_wiki(db, artist)
+    db.execute("SELECT * FROM artists WHERE artist='#{artist}';") do |artist|
+    puts "#{artist['artist']} is under #{artist['label']} and debuted in #{artist['debut_year']}."
+end
+
+def generate_member_wiki(db, artist)
+end
+
+def generate_sns_wiki(db, artist)
+end
+
+#edit_artist driver code
 #edit_artist(db, 'Oh My Girl', 'debut_year', 2014)
 #edit_artist(db, 'TWICE', 'debut_year', 2015)
 #edit_artist(db, 'April', 'debut_year', 2015)
 
-#display_artists(db)
-
-#user_prompts
-
-#edit(db, 'April', 'debut_year', 2016)
+#edit driver code
+#edit(db, 'April', 'debut_year', 2015)
 #edit(db, 'April', 'stage_name', 'Hyunjoo', 'Hyunjoo2')
 #edit(db, 'April', 'v', 'https://www.vlive.tv/channels/FA59B')
+
+display_artists(db)
+artist_info(db, 'Oh My Girl')
+display_members(db, 'Oh My Girl')
+display_memberinfo(db, 'Hyunjoo')
