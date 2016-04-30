@@ -48,6 +48,14 @@ end
 # write a GET route that retrieves contact info
 
 get '/contact' do
-  person = params[:person]
   "Dev Bootcamp<br>San Diego<br>707 Broadway<br>Suite 800<br>San Diego, CA 92101"
+end
+
+# write a GET route with query
+
+get '/great_job' do
+  if params[:name] != nil
+    "Good job, #{params[:name]}!"
+  else "Good job!"
+  end
 end
