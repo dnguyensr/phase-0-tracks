@@ -59,3 +59,12 @@ get '/great_job' do
   else "Good job!"
   end
 end
+
+#write GET route with two number queries that returns sum
+
+get '/add' do
+  number1 = params[:number1]
+  number2 = params[:number2]
+  sum = number1.to_i + number2.to_i
+  "#{number1} + #{number2} = #{sum}"
+end
