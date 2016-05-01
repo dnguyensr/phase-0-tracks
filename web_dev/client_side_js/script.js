@@ -1,8 +1,12 @@
-console.log("The script is working!")
+console.log("It works!");
 
 function tears(){
   var photo = document.getElementById("tears");
   photo.style.display = "block";
 }
 
-window.setTimeout(tears, 2000);
+var body = document.getElementById("body");
+body.addEventListener("click", tears);
+
+//Event with timer
+//window.setTimeout(tears, 2000);
